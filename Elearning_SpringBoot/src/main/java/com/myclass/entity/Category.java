@@ -2,17 +2,23 @@ package com.myclass.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
-@Entity(name = "categories")
+@Entity
+@Table(name = "categories")
 public class Category {
 	@Id
-	private int id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 
 	@NotBlank(message = "Vui lòng nhập tiêu đề!")
 	private String title;
@@ -22,7 +28,8 @@ public class Category {
 	@Column(name = "order_index")
 	private int orderIndex;
 
-	@OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "category", fetch = FetchType.LAZY, cascade = { CascadeType.REMOVE, CascadeType.REFRESH,
+			CascadeType.PERSIST })
 	private List<Course> courses;
 
 	public Category() {
@@ -30,8 +37,15 @@ public class Category {
 	}
 
 	public Category(int id, String title, String icon, int orderIndex) {
-		super();
+
 		this.id = id;
+		this.title = title;
+		this.icon = icon;
+		this.orderIndex = orderIndex;
+	}
+
+	public Category(String title, String icon, int orderIndex) {
+
 		this.title = title;
 		this.icon = icon;
 		this.orderIndex = orderIndex;

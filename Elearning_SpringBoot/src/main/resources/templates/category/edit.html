@@ -30,7 +30,7 @@
 						<form th:action="@{/admin/category/edit}" th:object="${category}" method="post">
 							<div class="row">
 								<div class="col-md-6 m-auto">
-									<input type="hidden" th:field="*{id}" />
+									<input type="hidden" th:field="*{id}" class="form-control" />
 									<div class="form-group">
 										<label>Tiêu đề</label> 
 										<input type="text" th:field="*{title}" class="form-control" />

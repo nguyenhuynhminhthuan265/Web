@@ -1,8 +1,5 @@
 package com.myclass.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.Email;
@@ -10,9 +7,8 @@ import javax.validation.constraints.NotBlank;
 
 import com.myclass.entity.Role;
 
-@Entity(name = "users")
 public class UserDto {
-	@Id
+
 	private String id;
 
 	@NotBlank(message = "Vui lòng nhập email!")
@@ -31,7 +27,6 @@ public class UserDto {
 	private String website;
 	private String facebook;
 
-	@Column(name = "role_id")
 	@NotBlank(message = "Vui lòng chọn loại người dùng!")
 	private String roleId;
 

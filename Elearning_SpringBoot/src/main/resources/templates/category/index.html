@@ -31,11 +31,15 @@
 									<tr>
 										<th>STT</th>
 										<th>Tiêu Đề</th>
+										<th>Icon</th>
 										<th>Vị trí</th>
 										<th>Hành Động</th>
 									</tr>
 								</thead>
 								<tbody>
+								<tr th:if="${categories.empty}">
+										<td colspan="5">Danh sách rỗng!</td>
+									</tr>
 								<tr th:each="item : ${categories}">
 										<td th:text="${ itemStat.index + 1 }"></td>
 										<td th:text="${ item.title }"></td>

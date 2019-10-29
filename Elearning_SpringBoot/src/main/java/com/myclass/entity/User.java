@@ -22,8 +22,8 @@ public class User {
 	@NotBlank(message = "Vui lòng nhập họ tên!")
 	private String fullname;
 
-	@NotBlank(message = "Vui lòng nhập mật khẩu!")
-	@Length(min = 6, max = 12, message = "Mật khẩu từ 6 - 12 ký tự!")
+	// @NotBlank(message = "Vui lòng nhập mật khẩu!")
+	@Length(min = 6, message = "Mật khẩu từ min 6 ký tự!")
 	private String password;
 	private String avatar;
 	private String phone;
@@ -52,8 +52,22 @@ public class User {
 
 	public User(String id, String email, String fullname, String password, String avatar, String phone, String address,
 			String website, String facebook, String roleId) {
-		super();
+
 		this.id = id;
+		this.email = email;
+		this.fullname = fullname;
+		this.password = password;
+		this.avatar = avatar;
+		this.phone = phone;
+		this.address = address;
+		this.website = website;
+		this.facebook = facebook;
+		this.roleId = roleId;
+	}
+
+	public User(String email, String fullname, String password, String avatar, String phone, String address,
+			String website, String facebook, String roleId) {
+
 		this.email = email;
 		this.fullname = fullname;
 		this.password = password;

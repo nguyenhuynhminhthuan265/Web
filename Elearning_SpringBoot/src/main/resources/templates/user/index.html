@@ -45,7 +45,7 @@
 										<td th:text="${ item.fullname }">Nguyễn Văn Tèo</td>
 										<td th:text="${ item.email }">teonguyen@gmail.com</td>
 										<td th:text="${ item.phone }">01234567899</td>
-										<td th:text="${ item.role.name }">RoleName</td>
+										<td th:text="${ item.role.description }">RoleName</td>
 										<td>
 											<a th:href="@{/admin/user/edit/{id}(id=${item.id})}" 
 												class="btn btn-sm btn-info btn-round py-1 font-weight-bold">Sửa</a>

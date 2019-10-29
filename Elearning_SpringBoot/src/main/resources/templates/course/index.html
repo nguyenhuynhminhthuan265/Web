@@ -40,45 +40,30 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<th>1</th>
-										<td>Javascript</td>
+								<tr th:if="${courses.empty}">
+										<td colspan="6">Danh sách rỗng!</td>
+									</tr>
+									<tr th:each="item:${courses}">
+										<td th:text="${itemStat.index+1}">1</td>
+										<td th:text="${item.title}">Javascript</td>
 										<td><img th:src="@{/assets/images/1.png}" height="50"
 											class="p-1 border" /></td>
-										<td>20</td>
-										<td class="text-danger font-weight-bold">1.200.000 đ</td>
-										<td><a href="#"
-											class="btn btn-sm btn-info btn-round py-1 font-weight-bold">Sửa</a>
-											<a href="#"
-											class="btn btn-sm btn-danger btn-round py-1 font-weight-bold">Xóa</a>
+										<td th:text="${item.leturesCount}">20</td>
+										<td th:text="${item.price}"  class="text-danger font-weight-bold">1.200.000 đ</td>
+										<td>
+											<a 
+												th:href="@{/admin/course/edit/{id}(id=${item.id})}" 
+												class="btn btn-sm btn-info btn-round py-1 font-weight-bold">
+												Sửa
+											</a>
+											<a 
+												th:href="@{/admin/course/delete/{id}(id=${item.id})}" 
+												class="btn btn-sm btn-danger btn-round py-1 font-weight-bold">
+												Xóa
+											</a>
 										</td>
 									</tr>
-									<tr>
-										<th>2</th>
-										<td>ReactJs</td>
-										<td><img th:src="@{/assets/images/1.png}" height="50"
-											class="p-1 border" /></td>
-										<td>30</td>
-										<td class="text-danger font-weight-bold">1.500.000 đ</td>
-										<td><a href="#"
-											class="btn btn-sm btn-info btn-round py-1 font-weight-bold">Sửa</a>
-											<a href="#"
-											class="btn btn-sm btn-danger btn-round py-1 font-weight-bold">Xóa</a>
-										</td>
-									</tr>
-									<tr>
-										<th>3</th>
-										<td>Angular 7</td>
-										<td><img th:src="@{/assets/images/1.png}" height="50"
-											class="p-1 border" /></td>
-										<td>20</td>
-										<td class="text-danger font-weight-bold">1.500.000 đ</td>
-										<td><a href="#"
-											class="btn btn-sm btn-info btn-round py-1 font-weight-bold">Sửa</a>
-											<a href="#"
-											class="btn btn-sm btn-danger btn-round py-1 font-weight-bold">Xóa</a>
-										</td>
-									</tr>
+									
 								</tbody>
 							</table>
 						</div>

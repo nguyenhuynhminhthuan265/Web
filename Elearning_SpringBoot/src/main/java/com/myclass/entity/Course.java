@@ -10,13 +10,16 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
-@Entity(name = "courses")
+@Entity
+@Table(name = "courses")
 public class Course {
 	@Id
-	private int id;
+	// @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 
 	@NotBlank(message = "Vui lòng nhập tiêu đề")
 	private String title;
@@ -75,7 +78,7 @@ public class Course {
 
 	public Course(int id, String title, String image, int leturesCount, int hourCount, int viewCount, long price,
 			int discount, long promotionPrice, String description, String content, int categoryId, Date lastUpdate) {
-		super();
+
 		this.id = id;
 		this.title = title;
 		this.image = image;

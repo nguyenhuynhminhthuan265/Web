@@ -16,7 +16,7 @@
 						</a></li>
 						<li class="breadcrumb-item"><a th:href="@{/admin/user}">Thành
 								viên</a></li>
-						<li class="breadcrumb-item"><a href="#!">Thêm mới thành
+						<li class="breadcrumb-item"><a href="#!">Cập nhật thành
 								viên</a></li>
 					</ul>
 				</div>
@@ -24,14 +24,15 @@
 			<div class="col-sm-12">
 				<div class="card">
 					<div class="card-header">
-						<h2 class="text-uppercase text-center">Thêm mới thành viên</h2>
+						<h2 class="text-uppercase text-center">Cập nhật thành viên</h2>
 					</div>
 					<div class="card-block">
 						<form action="#" th:action="@{/admin/user/edit}"
 							th:object="${user}" method="post">
 							<input type="hidden" th:field="*{id}" class="form-control" />
+							<input type="hidden" th:field="*{password}" class="form-control" />
 							<div class="row">
-								<input type="hidden" th:field="*{id}" />
+								
 								<div class="col-md-6">
 									<div class="form-group">
 										<label>Họ tên</label> <input type="text"
@@ -71,7 +72,7 @@
 											th:errors="*{roleId}"></p>
 									</div>
 									<div class="form-group">
-										<label>Avatar</label> <input type="text" th:field="*{avatar}"
+										<label>Avatar</label> <input type="file" th:field="*{avatar}"
 											class="form-control" />
 									</div>
 								</div>

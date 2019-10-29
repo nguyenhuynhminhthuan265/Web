@@ -1,4 +1,5 @@
-<html  xmlns:th="http://www.thymeleaf.org">
+<html  xmlns:th="http://www.thymeleaf.org" 
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
 <title>Đăng nhập</title>
 <meta charset="utf-8">
@@ -19,13 +20,13 @@
 			<div class="col-md-4 m-auto border p-3">
 				<h3 class="text-center">Đăng nhập</h3>
 				<p class="text-center" th:text=${error}></p>
-				<form action="#" th:action="@{/admin/login}" method="POST">
+				<form action="#" th:action="@{/admin/login}" method="POST" th:object="${loginUserDto}">
 					<div class="form-group">
 						<label for="email">Email:</label> <input type="email"
-							class="form-control" name="email">
+							class="form-control" name="email" th:field="*{email}">
 					</div>
 					<div class="form-group">
-						<label for="pwd">Password:</label> <input type="password"
+						<label for="pwd">Password:</label> <input type="password"  th:field="*{password}"
 							class="form-control" name="password">
 					</div>
 					<button type="submit" class="btn btn-primary">Đăng nhập</button>

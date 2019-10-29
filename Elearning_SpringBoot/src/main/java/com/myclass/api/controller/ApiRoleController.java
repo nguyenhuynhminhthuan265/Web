@@ -13,16 +13,17 @@ import com.myclass.entity.Role;
 import com.myclass.service.RoleService;
 
 @RestController
-@RequestMapping("/api/admin")
+
+@RequestMapping("/api")
 public class ApiRoleController {
 
 	@Autowired
 	private RoleService roleService;
-	
+
 	@GetMapping("role")
-	public ResponseEntity<List<Role>> get(){
+	public ResponseEntity<List<Role>> get() {
 		List<Role> roles = roleService.findAll();
-		if(roles == null) {
+		if (roles == null) {
 			return new ResponseEntity(HttpStatus.NO_CONTENT);
 		}
 		return new ResponseEntity<List<Role>>(roles, HttpStatus.OK);
